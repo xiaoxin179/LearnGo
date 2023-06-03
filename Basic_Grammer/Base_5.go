@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+)
 
 func evel(a, b int, op string) int {
 	var result int
@@ -37,9 +42,60 @@ func grade(score int) string {
 	return g
 
 }
-//循环结构
-func
+
+// 第二个条件结构
+func bounded(v int) int {
+	if v > 100 {
+		return 100
+	} else if v < 0 {
+		return 0
+	} else {
+		return v
+	}
+
+}
+
+// 循环结构
+func converTobin(n int) string {
+	result := ""
+	for ; n > 0; n /= 2 {
+		lsb := n % 2
+		result = strconv.Itoa(lsb) + result
+	}
+	return result
+
+}
+func printFile(filename string) {
+	file, err := os.Open(filename)
+	if err != nil {
+		panic(err)
+	}
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+
+	}
+
+}
+func forerver() {
+	for {
+		fmt.Println("abc")
+
+	}
+
+}
 func main() {
 	fmt.Println(evel(12, 13, "*"))
 	fmt.Println(grade(80))
+	fmt.Println(bounded(123))
+	fmt.Println("循环结构的使用:")
+	fmt.Println(
+		converTobin(1212),
+		converTobin(10086),
+		converTobin(4),
+	)
+	fmt.Println("打印文件内容：")
+	//printFile("File.txt")
+	forerver()
+
 }
