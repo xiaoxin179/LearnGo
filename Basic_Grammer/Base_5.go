@@ -77,6 +77,8 @@ func printFile(filename string) {
 	}
 
 }
+
+// for使用的是大括号来括起来的
 func forerver() {
 	for {
 		fmt.Println("abc")
